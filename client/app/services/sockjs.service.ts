@@ -37,6 +37,8 @@ export class SockjsService {
 	}
 
 	private messageReceived (e: SJSMessageEvent) {
+		console.log("messageReceived");
+		console.log(e);
 		var msg = JSON.parse(e.data);
 		this.callHandlers('message', msg.type, msg.originator, msg.data);
 	}

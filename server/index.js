@@ -16,6 +16,7 @@ echo.on('connection', function (conn) {
 	});
 
 	conn.on('close', function () {
+		console.log("close");
 		broadcast('disconnect', {}, conn.id);
 		delete connections[conn.id];
 	});
@@ -50,10 +51,12 @@ var messageHandlers = {
 	message: function (conn, data) {
 		//data.username = connections[conn.id].username;
 		//data.mail = connections[conn.id].mail;
-		console.log(data);
+
 		broadcast('message', data, conn.id);
 	},
 	list: function (conn, data) {
+				console.log(data);
+		broadcast('message', data, conn.id);
 		var users = [];
 		Object.keys(connections).forEach(function(id) {
 			if (connections[id].email) {
