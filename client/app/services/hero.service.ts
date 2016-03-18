@@ -1,4 +1,4 @@
-import {HEROES} from './mock-heroes';
+import {HEROES} from '../models/mock-heroes';
 import {Injectable} from 'angular2/core';
 
 @Injectable()

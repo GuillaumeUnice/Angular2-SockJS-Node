@@ -48,8 +48,9 @@ var messageHandlers = {
 		}
 	},
 	message: function (conn, data) {
-		data.username = connections[conn.id].username;
-		data.mail = connections[conn.id].mail;
+		//data.username = connections[conn.id].username;
+		//data.mail = connections[conn.id].mail;
+		console.log(data);
 		broadcast('message', data, conn.id);
 	},
 	list: function (conn, data) {
